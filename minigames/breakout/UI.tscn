@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://mb4tvp5vlsil"]
+
+[ext_resource type="Script" uid="uid://dx721vy80js0f" path="res://breakout/scripts/ui.gd" id="1_a4fm3"]
+[ext_resource type="AudioStream" uid="uid://dsypfxf3gm01l" path="res://breakout/audio/Win.mp3" id="2_8o7nt"]
+[ext_resource type="Texture2D" uid="uid://c3jy5o0l6tci2" path="res://breakout/assets/Player-01.png" id="2_cadvc"]
+[ext_resource type="AudioStream" uid="uid://b40w48bjpanma" path="res://breakout/audio/Fall.mp3" id="3_k7hhm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fxx1"]
+atlas = ExtResource("2_cadvc")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a4fm3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fxx1")
+}],
+"loop": 1,
+"name": &"Win",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnk04"]
+atlas = ExtResource("2_cadvc")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3mqpt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnk04")
+}],
+"loop": 1,
+"name": &"Lose",
+"speed": 5.0
+}]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=139530386]
+script = ExtResource("1_a4fm3")
+win_sound = ExtResource("2_8o7nt")
+lose_sound = ExtResource("3_k7hhm")
+
+[node name="WinPanel" type="Control" parent="." unique_id=1228155472]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WinAnim" type="AnimatedSprite2D" parent="WinPanel" unique_id=1239755315]
+sprite_frames = SubResource("SpriteFrames_a4fm3")
+animation = &"Win"
+
+[node name="LosePanel" type="Control" parent="." unique_id=1125578756]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LoseAnim" type="AnimatedSprite2D" parent="LosePanel" unique_id=1195956556]
+sprite_frames = SubResource("SpriteFrames_3mqpt")
+animation = &"Lose"

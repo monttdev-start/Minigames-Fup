@@ -1,8 +1,9 @@
 extends CharacterBody2D
+signal hit_bottom
 
 @onready var animationPlayer: AnimatedSprite2D = $AnimatedSprite2D
-@export var speed: float = 320.0
-@export var spin_speed: float = 10.0 
+@export var speed: float = 550.0
+@export var spin_speed: float = 20.0 
 var direction: Vector2 = Vector2(0.6, -0.8).normalized()
 
 func _ready() -> void:
@@ -18,11 +19,15 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		var normal := collision.get_normal()
 		direction = direction.bounce(normal)
+		
+		var collider := collision.get_collider()
+		if collider != null and (collider.name == "Abajo" or (collider.get_parent() != null and collider.get_parent().name == "Abajo")):
+			hit_bottom.emit()
+			return
 
 		if abs(direction.y) < 0.25:
 			direction.y = -0.25 if direction.y <= 0.0 else 0.25
 
-		var collider := collision.get_collider()
 		if collider and collider.is_in_group("obs"):
 			collider.queue_free()
 		elif collider and collider.is_in_group("player"):

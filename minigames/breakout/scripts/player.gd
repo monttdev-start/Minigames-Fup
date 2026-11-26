@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var animationPlayer: AnimatedSprite2D = $AnimatedSprite2D
-@export var speedPlayerDefault: float = 260.0
+@export var speedPlayerDefault: float = 600.5
 
 var gamepad: Dictionary = {
 	"right": KEY_D,
@@ -40,24 +40,35 @@ func _physics_process(_delta: float) -> void:
 		reset()
 		return
 
-	if not validationPlayer(50.5, 320.8):
+	if not validationPlayer(50.5, 800.0):
 		reset()
 		return
 
 	var dir := 0.0
-	animationPlayer.play("Up")
-	
+
 	if Input.is_key_pressed(gamepad["right"]):
-		animationPlayer.play("Walk_Right")
 		dir += 1.0
 	if Input.is_key_pressed(gamepad["left"]):
-		animationPlayer.play("Walk_Left")
 		dir -= 1.0
+
+	if dir > 0.0:
+		animationPlayer.flip_h = true
+		_play_anim("Walk_Left") 
+	elif dir < 0.0:
+		animationPlayer.flip_h = false
+		_play_anim("Walk_Left")
+	else:
+		animationPlayer.flip_h = false
+		_play_anim("Up")
 
 	velocity.x = dir * speedPlayerDefault
 	velocity.y = 0.0
 	move_and_slide()
-	
+
+func _play_anim(anim_name: String) -> void:
+	if animationPlayer.animation != anim_name or not animationPlayer.is_playing():
+		animationPlayer.play(anim_name)
+		
 func reset() -> void:
 	velocity = Vector2.ZERO
 	move_and_slide()

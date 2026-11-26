@@ -5,9 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://bgyy0h6ov0ak1" path="res://breakout/Carton.tscn" id="3_dwd5a"]
 [ext_resource type="PackedScene" uid="uid://4floayp7fv4m" path="res://breakout/Player.tscn" id="4_nu07j"]
 [ext_resource type="PackedScene" uid="uid://du4slqtsjsrbn" path="res://breakout/Ball.tscn" id="5_80pbi"]
-[ext_resource type="Texture2D" uid="uid://bvli5nsyu8i7u" path="res://breakout/assets/TextureSuelo.png" id="6_dwd5a"]
+[ext_resource type="Texture2D" uid="uid://ckxkbjeg8a1r" path="res://breakout/assets/Calle.jpg" id="6_80pbi"]
 [ext_resource type="PackedScene" uid="uid://bsgjl4bqfj6he" path="res://breakout/ParedIzq.tscn" id="7_nu07j"]
 [ext_resource type="PackedScene" uid="uid://62jua8hgvlpo" path="res://breakout/ParedDere.tscn" id="8_80pbi"]
+[ext_resource type="PackedScene" uid="uid://mb4tvp5vlsil" path="res://breakout/UI.tscn" id="9_h75qa"]
+[ext_resource type="AudioStream" uid="uid://o20g65tgt3ve" path="res://breakout/audio/Background.wav" id="10_2pgmq"]
 
 [node name="Node2D" type="Node2D" unique_id=45562441]
 z_index = 1
@@ -17,25 +19,45 @@ carton_scene = ExtResource("3_dwd5a")
 spacing = Vector2(100, 100)
 grid_origin = Vector2(160, 90)
 
-[node name="CharacterBody2D" parent="." unique_id=101832441 instance=ExtResource("4_nu07j")]
+[node name="Player" parent="." unique_id=101832441 instance=ExtResource("4_nu07j")]
 z_index = 1
 position = Vector2(505, 934)
 
-[node name="CharacterBody2D2" parent="." unique_id=1952573576 instance=ExtResource("5_80pbi")]
+[node name="Ball" parent="." unique_id=1952573576 instance=ExtResource("5_80pbi")]
 z_index = 1
 position = Vector2(502, 817)
 
 [node name="Suelo" type="Sprite2D" parent="." unique_id=2129483181]
-position = Vector2(483, 505)
-scale = Vector2(2.4216866, 2.6786666)
-texture = ExtResource("6_dwd5a")
+position = Vector2(502.00003, 513.00006)
+scale = Vector2(1.4187742, 1.8496614)
+texture = ExtResource("6_80pbi")
 
-[node name="CharacterBody2D3" parent="." unique_id=1624532939 instance=ExtResource("7_nu07j")]
+[node name="CalleIzq" parent="." unique_id=1624532939 instance=ExtResource("7_nu07j")]
 position = Vector2(49, 66)
 
-[node name="CharacterBody2D4" parent="." unique_id=239480871 instance=ExtResource("7_nu07j")]
+[node name="CalleIzq2" parent="." unique_id=239480871 instance=ExtResource("7_nu07j")]
 position = Vector2(49, 576)
 
-[node name="CharacterBody2D5" parent="." unique_id=186920051 instance=ExtResource("8_80pbi")]
+[node name="CalleDere" parent="." unique_id=186920051 instance=ExtResource("8_80pbi")]
 z_index = 1
-position = Vector2(941, 68)
+position = Vector2(957, 963)
+rotation = 3.140949
+scale = Vector2(8.11997, 7.96)
+
+[node name="Abajo" parent="." unique_id=987926008 instance=ExtResource("8_80pbi")]
+z_index = 1
+position = Vector2(92, 1093)
+rotation = 4.712389
+scale = Vector2(8.11997, 7.96)
+
+[node name="Arriba" parent="." unique_id=1517598261 instance=ExtResource("8_80pbi")]
+z_index = 1
+position = Vector2(62, -67)
+rotation = 4.712389
+scale = Vector2(8.11997, 7.96)
+
+[node name="CanvasLayer" parent="." unique_id=139530386 instance=ExtResource("9_h75qa")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=103245767]
+stream = ExtResource("10_2pgmq")
+autoplay = true
