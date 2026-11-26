@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://du4slqtsjsrbn"]
+
+[ext_resource type="Script" uid="uid://bh5pb6315ehkj" path="res://breakout/ball.gd" id="1_dmixb"]
+[ext_resource type="Texture2D" uid="uid://b3skogiplyrqw" path="res://breakout/assets/ball-0001.png" id="2_ypgn4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ej4a"]
+radius = 51.009804
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33cs7"]
+atlas = ExtResource("2_ypgn4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su4u8"]
+atlas = ExtResource("2_ypgn4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ej4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33cs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su4u8")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1952573576]
+script = ExtResource("1_dmixb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=956291848]
+shape = SubResource("CircleShape2D_7ej4a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=987834549]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_7ej4a")
+animation = &"idle"
