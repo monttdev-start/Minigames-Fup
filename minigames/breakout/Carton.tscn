@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bgyy0h6ov0ak1"]
+
+[ext_resource type="Texture2D" uid="uid://u2fu5jnfo62f" path="res://breakout/assets/carton.png" id="1_em1lj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob3fb"]
+size = Vector2(16, 16)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=152188408]
+scale = Vector2(5, 5)
+
+[node name="Basurero" type="Sprite2D" parent="." unique_id=333098050]
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("1_em1lj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=569882605]
+shape = SubResource("RectangleShape2D_ob3fb")

@@ -1,3 +1,41 @@
 [gd_scene format=3 uid="uid://ddg3j0chsh7ms"]
 
+[ext_resource type="Script" uid="uid://cxqa2l7mbi05d" path="res://breakout/scripts/NodeBreak.gd" id="1_j42vn"]
+[ext_resource type="PackedScene" uid="uid://cpci5fvbl7q65" path="res://breakout/Trash.tscn" id="2_d678e"]
+[ext_resource type="PackedScene" uid="uid://bgyy0h6ov0ak1" path="res://breakout/Carton.tscn" id="3_dwd5a"]
+[ext_resource type="PackedScene" uid="uid://4floayp7fv4m" path="res://breakout/Player.tscn" id="4_nu07j"]
+[ext_resource type="PackedScene" uid="uid://du4slqtsjsrbn" path="res://breakout/Ball.tscn" id="5_80pbi"]
+[ext_resource type="Texture2D" uid="uid://bvli5nsyu8i7u" path="res://breakout/assets/TextureSuelo.png" id="6_dwd5a"]
+[ext_resource type="PackedScene" uid="uid://bsgjl4bqfj6he" path="res://breakout/ParedIzq.tscn" id="7_nu07j"]
+[ext_resource type="PackedScene" uid="uid://62jua8hgvlpo" path="res://breakout/ParedDere.tscn" id="8_80pbi"]
+
 [node name="Node2D" type="Node2D" unique_id=45562441]
+z_index = 1
+script = ExtResource("1_j42vn")
+trash_scene = ExtResource("2_d678e")
+carton_scene = ExtResource("3_dwd5a")
+spacing = Vector2(100, 100)
+grid_origin = Vector2(160, 90)
+
+[node name="CharacterBody2D" parent="." unique_id=101832441 instance=ExtResource("4_nu07j")]
+z_index = 1
+position = Vector2(505, 934)
+
+[node name="CharacterBody2D2" parent="." unique_id=1952573576 instance=ExtResource("5_80pbi")]
+z_index = 1
+position = Vector2(502, 817)
+
+[node name="Suelo" type="Sprite2D" parent="." unique_id=2129483181]
+position = Vector2(483, 505)
+scale = Vector2(2.4216866, 2.6786666)
+texture = ExtResource("6_dwd5a")
+
+[node name="CharacterBody2D3" parent="." unique_id=1624532939 instance=ExtResource("7_nu07j")]
+position = Vector2(49, 66)
+
+[node name="CharacterBody2D4" parent="." unique_id=239480871 instance=ExtResource("7_nu07j")]
+position = Vector2(49, 576)
+
+[node name="CharacterBody2D5" parent="." unique_id=186920051 instance=ExtResource("8_80pbi")]
+z_index = 1
+position = Vector2(941, 68)

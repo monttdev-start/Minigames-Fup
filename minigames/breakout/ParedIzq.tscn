@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bsgjl4bqfj6he"]
+
+[ext_resource type="Texture2D" uid="uid://bok4xlpa2rabh" path="res://breakout/assets/pared.png" id="1_6ltaj"]
+[ext_resource type="Texture2D" uid="uid://cnva73ob3krrk" path="res://breakout/assets/pared2.png" id="1_l2hxg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ltaj"]
+size = Vector2(16, 64.000015)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1624532939]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(8, 8)
+
+[node name="Pared" type="Sprite2D" parent="." unique_id=134107631]
+position = Vector2(0, 15.8)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("1_6ltaj")
+
+[node name="Pared2" type="Sprite2D" parent="." unique_id=730378082]
+texture = ExtResource("1_l2hxg")
+
+[node name="Pared3" type="Sprite2D" parent="." unique_id=184184909]
+position = Vector2(2.3841856e-07, 31.799997)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("1_l2hxg")
+
+[node name="Pared4" type="Sprite2D" parent="." unique_id=1686579072]
+position = Vector2(2.3841854e-07, 31.799995)
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("1_l2hxg")
+
+[node name="Pared5" type="Sprite2D" parent="." unique_id=2146306169]
+position = Vector2(0, 47.800003)
+scale = Vector2(0.9999998, 0.9999998)
+texture = ExtResource("1_6ltaj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1383590009]
+position = Vector2(5.7220444e-07, 23.799994)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_6ltaj")

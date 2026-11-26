@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://62jua8hgvlpo"]
+
+[ext_resource type="Texture2D" uid="uid://5x5s0fsuimp1" path="res://breakout/assets/ParedDere1.png" id="1_3e1aq"]
+[ext_resource type="Texture2D" uid="uid://cxdqv8lh23uf" path="res://breakout/assets/ParedDere2.png" id="2_ndwb5"]
+[ext_resource type="Texture2D" uid="uid://067l6vv4sl6y" path="res://breakout/assets/ParedDere4.png" id="3_halkj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3e1aq"]
+size = Vector2(16.25, 128.75)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=186920051]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(8, 8)
+
+[node name="Pared" type="Sprite2D" parent="." unique_id=569679128]
+texture = ExtResource("1_3e1aq")
+
+[node name="Pared2" type="Sprite2D" parent="." unique_id=781206190]
+position = Vector2(0, 16)
+texture = ExtResource("2_ndwb5")
+
+[node name="Pared3" type="Sprite2D" parent="." unique_id=572834044]
+position = Vector2(0, 32)
+texture = ExtResource("2_ndwb5")
+
+[node name="Pared4" type="Sprite2D" parent="." unique_id=1202515733]
+position = Vector2(0, 48.125)
+texture = ExtResource("1_3e1aq")
+
+[node name="Pared5" type="Sprite2D" parent="." unique_id=59219647]
+position = Vector2(0, 64.375)
+rotation = 3.1415927
+texture = ExtResource("3_halkj")
+
+[node name="Pared6" type="Sprite2D" parent="." unique_id=1668762665]
+position = Vector2(0, 96)
+rotation = 3.1415927
+texture = ExtResource("3_halkj")
+
+[node name="Pared7" type="Sprite2D" parent="." unique_id=1666664482]
+position = Vector2(0.125, 112)
+texture = ExtResource("1_3e1aq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=924691845]
+position = Vector2(0, 56.25)
+shape = SubResource("RectangleShape2D_3e1aq")
